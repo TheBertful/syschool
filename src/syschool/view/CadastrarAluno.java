@@ -41,6 +41,7 @@ public class CadastrarAluno extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de novo aluno:");
 
         lbNome.setText("Nome:");
 

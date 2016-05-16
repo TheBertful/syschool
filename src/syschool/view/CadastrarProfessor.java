@@ -45,11 +45,12 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         cboxCurso = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        lbDisciplinas = new javax.swing.JLabel();
+        btnIncluirDisciplina = new javax.swing.JButton();
+        btnRemoverDisciplina = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de novo professor:");
 
         lbEmail.setText("E-Mail:");
 
@@ -92,11 +93,11 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setText("Disciplinas:");
+        lbDisciplinas.setText("Disciplinas:");
 
-        jButton1.setText("Incluir Disciplina");
+        btnIncluirDisciplina.setText("Incluir Disciplina");
 
-        jButton2.setText("Remover Disciplina");
+        btnRemoverDisciplina.setText("Remover Disciplina");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,7 +131,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
                                 .addContainerGap())))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(lbDisciplinas)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(btnCancelar)
@@ -146,9 +147,9 @@ public class CadastrarProfessor extends javax.swing.JFrame {
                                             .addComponent(cboxCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(lbDataNasc, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton2)
+                                    .addComponent(btnRemoverDisciplina)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton1))))
+                                    .addComponent(btnIncluirDisciplina))))
                         .addContainerGap(15, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -181,13 +182,13 @@ public class CadastrarProfessor extends javax.swing.JFrame {
                     .addComponent(txtDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cboxCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1)
+                .addComponent(lbDisciplinas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnIncluirDisciplina)
+                    .addComponent(btnRemoverDisciplina))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar)
@@ -235,16 +236,16 @@ public class CadastrarProfessor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnIncluirDisciplina;
+    private javax.swing.JButton btnRemoverDisciplina;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox cboxCurso;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbCPF;
     private javax.swing.JLabel lbCoordenador;
     private javax.swing.JLabel lbDataNasc;
+    private javax.swing.JLabel lbDisciplinas;
     private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbMatricula;
     private javax.swing.JLabel lbNome;
