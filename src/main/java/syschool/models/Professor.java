@@ -17,14 +17,14 @@ public class Professor {
     private String nome;
     private Date data_nasc;
     private String email;
-    private int cpf;
+    private String cpf;
     private int id_curso;
     private int id_disciplina;
 
     public Professor() {
     }
 
-    public Professor(int matricula, String nome, Date data_nasc, String email, int cpf, int id_curso, int id_disciplina) {
+    public Professor(int matricula, String nome, Date data_nasc, String email, String cpf, int id_curso, int id_disciplina) {
         this.matricula = matricula;
         this.nome = nome;
         this.data_nasc = data_nasc;
@@ -66,11 +66,11 @@ public class Professor {
         this.email = email;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

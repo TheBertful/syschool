@@ -120,35 +120,35 @@ LOCK TABLES `inscricao` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `professor_coordenador`
+-- Table structure for table `professor`
 --
 
-DROP TABLE IF EXISTS `professor_coordenador`;
+DROP TABLE IF EXISTS `professor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `professor_coordenador` (
+CREATE TABLE `professor` (
   `matricula` int(8) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) NOT NULL,
   `data_nasc` date NOT NULL,
   `email` varchar(30) NOT NULL,
-  `cpf` int(11) NOT NULL,
+  `cpf` varchar(11) NOT NULL,
   `id_curso` int(8) NOT NULL,
   `id_disciplina` int(8) NOT NULL,
   PRIMARY KEY (`matricula`),
   KEY `id_curso` (`id_curso`),
   KEY `id_disciplina` (`id_disciplina`),
-  CONSTRAINT `professor_coordenador_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id_curso`),
-  CONSTRAINT `professor_coordenador_ibfk_2` FOREIGN KEY (`id_disciplina`) REFERENCES `disciplina` (`id_disciplina`)
+  CONSTRAINT `professor_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `curso` (`id_curso`),
+  CONSTRAINT `professor_ibfk_2` FOREIGN KEY (`id_disciplina`) REFERENCES `disciplina` (`id_disciplina`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `professor_coordenador`
+-- Dumping data for table `professor`
 --
 
-LOCK TABLES `professor_coordenador` WRITE;
-/*!40000 ALTER TABLE `professor_coordenador` DISABLE KEYS */;
-/*!40000 ALTER TABLE `professor_coordenador` ENABLE KEYS */;
+LOCK TABLES `professor` WRITE;
+/*!40000 ALTER TABLE `professor` DISABLE KEYS */;
+/*!40000 ALTER TABLE `professor` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
