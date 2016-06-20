@@ -30,6 +30,7 @@ CREATE TABLE `aluno` (
   `data_nasc` date NOT NULL,
   `email` varchar(30) NOT NULL,
   `cpf` varchar(11) NOT NULL,
+  `senha` varchar(45) NOT NULL,
   PRIMARY KEY (`matricula`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -40,7 +41,7 @@ CREATE TABLE `aluno` (
 
 LOCK TABLES `aluno` WRITE;
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
-INSERT INTO `aluno` VALUES (1,'Priscila Fukumoto','0000-00-00','prityumi@hotmail.com','195-321-542');
+INSERT INTO `aluno` VALUES (1,'Priscila Fukumoto','0000-00-00','prityumi@hotmail.com','195-321-542','Priscila Fukumoto');
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,6 +135,7 @@ CREATE TABLE `professor` (
   `cpf` varchar(11) NOT NULL,
   `id_curso` int(8) NOT NULL,
   `id_disciplina` int(8) NOT NULL,
+  `senha` varchar(50) NOT NULL,
   PRIMARY KEY (`matricula`),
   KEY `id_curso` (`id_curso`),
   KEY `id_disciplina` (`id_disciplina`),

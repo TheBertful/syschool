@@ -27,7 +27,7 @@ public class Aluno {
         this.nome = nome;
         this.data_nasc = data_nasc;
         this.email = email;
-        this.cpf = cpf;
+        this.cpf = cpf;       
     }
 
     public int getMatricula() {

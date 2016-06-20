@@ -5,17 +5,36 @@
  */
 package syschool.view;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import syschool.models.Aluno;
+import syschool.controllers.AlunoController;
 /**
  *
  * @author Hugo
  */
 public class CadastrarAluno extends javax.swing.JFrame {
+    
+    private Aluno aluno;
+    private AlunoController alunoController;
 
     /**
      * Creates new form CadastrarAluno
      */
     public CadastrarAluno() {
         initComponents();
+        alunoController = new AlunoController();
+        StringBuilder sb = new StringBuilder();
+        sb.append("1");
+        try {
+            sb.append(alunoController.contar() + 1);
+        } catch (Exception ex) {
+            Logger.getLogger(CadastrarAluno.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        txtMatricula.setText(sb.toString());
     }
 
     /**
@@ -60,6 +79,11 @@ public class CadastrarAluno extends javax.swing.JFrame {
         txtCPF.setText("000.000.000.01");
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
 
@@ -132,6 +156,18 @@ public class CadastrarAluno extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        // TODO add your handling code here:        
+        Date d = Date.valueOf(txtDataNasc.getText());
+        
+        aluno = new Aluno(Integer.parseInt(txtMatricula.getText()),txtNome.getText(), d, txtEmail.getText(), txtCPF.getText());
+        try {
+            alunoController.inserir(aluno);
+        } catch (Exception ex) {
+            Logger.getLogger(CadastrarAluno.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
      * @param args the command line arguments

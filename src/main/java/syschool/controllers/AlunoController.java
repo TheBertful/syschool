@@ -54,4 +54,16 @@ public class AlunoController {
         
         return alunos;
      }
+    public int contar() throws Exception{
+        
+        String query = "SELECT count(*) FROM aluno";        
+        Statement st = ConexaoMySQL.getConexao().createStatement();
+        ResultSet rs = st.executeQuery(query);
+        
+        int numAlunos = 0;
+        while (rs.next()) {
+            numAlunos++;
+        }
+        return numAlunos;
+    }
 }
