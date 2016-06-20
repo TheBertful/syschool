@@ -17,6 +17,11 @@ public class MenuCoordenador extends javax.swing.JFrame {
     public MenuCoordenador() {
         initComponents();
     }
+    
+    public MenuCoordenador(int id) {
+        initComponents();
+        this.id = id;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -198,6 +203,7 @@ public class MenuCoordenador extends javax.swing.JFrame {
         });
     }
 
+    private int id;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

@@ -17,6 +17,11 @@ public class MenuAdmin extends javax.swing.JFrame {
     public MenuAdmin() {
         initComponents();
     }
+    
+    public MenuAdmin(int id) {
+        initComponents();
+        this.id = id;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -143,6 +148,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
     }
 
+    private int id;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastroAlunos;
     private javax.swing.JButton btnCadastroProfessores;
