@@ -134,16 +134,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar Alunos"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastroAlunosActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnCadastroProfessores">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar Professores"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCadastroProfessoresActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnGerenciarCursos">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gerenciar cursos"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGerenciarCursosActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
