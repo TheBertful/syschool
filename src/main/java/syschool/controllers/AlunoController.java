@@ -16,8 +16,8 @@ import java.sql.ResultSet;
  */
 public class AlunoController {
     public void inserir(Aluno a) throws Exception{
-        String query = "INSERT INTO aluno (matricula, nome, data_nasc, email, cpf) VALUES ('%d','%s','%s', '%s', '%s')";
-        query = String.format(query, a.getMatricula(), a.getNome(), a.getData_nasc(), a.getEmail(), a.getCpf());
+        String query = "INSERT INTO aluno (matricula, nome, data_nasc, email, cpf, senha) VALUES ('%d','%s','%s', '%s', '%s', '%s')";
+        query = String.format(query, a.getMatricula(), a.getNome(), a.getData_nasc(), a.getEmail(), a.getCpf(), a.getSenha());
                 
         Statement st = ConexaoMySQL.getConexao().createStatement();        
         st.executeUpdate(query);
@@ -46,6 +46,7 @@ public class AlunoController {
             a.setData_nasc(rs.getDate("data_nasc"));
             a.setEmail(rs.getString("email"));
             a.setCpf(rs.getString("cpf"));
+            a.setSenha(rs.getString("senha"));
             alunos[count] = a;
             count++;
         }

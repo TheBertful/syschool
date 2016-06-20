@@ -5,7 +5,14 @@
  */
 package syschool.view;
 
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import syschool.controllers.AlunoController;
+import syschool.controllers.ProfessorController;
+import syschool.models.Aluno;
+import syschool.models.Professor;
 
 /**
  *
@@ -139,38 +146,79 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        if (txtMatricula.getText().isEmpty() || pwSenha.getPassword().toString().isEmpty()) {
+        if (txtMatricula.getText().isEmpty() || Arrays.toString(pwSenha.getPassword()).isEmpty()) {
             JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos.");
         }
 
-        // Valida Login - select matricula - senha
+        AlunoController ac = new AlunoController();
+        ProfessorController pc = new ProfessorController();
         
         // Aluno
         if (txtMatricula.getText().startsWith("1")) {
-            MenuAluno mAluno = new MenuAluno(Integer.parseInt(txtMatricula.getText()));
-            mAluno.setVisible(true);
-            this.dispose();
+            try {
+                Aluno[] alunos = ac.list();
+                
+                for (Aluno aluno : alunos) {
+                    if ((aluno.getMatricula() == Integer.parseInt(txtMatricula.getText())) && (aluno.getSenha().equals(Arrays.toString(pwSenha.getPassword())))) {
+                        MenuAluno mAluno = new MenuAluno(Integer.parseInt(txtMatricula.getText()));
+                        mAluno.setVisible(true);
+                        this.dispose();
+                    }
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
         // Professor
         if (txtMatricula.getText().startsWith("2")) {
-            MenuProfessor mProf = new MenuProfessor(Integer.parseInt(txtMatricula.getText()));
-            mProf.setVisible(true);
-            this.dispose();
+            try {
+                Professor[] professores = pc.list();
+                
+                for (Professor professor : professores) {
+                    if (professor.getMatricula() == Integer.parseInt(txtMatricula.getText()) && (professor.getSenha().equals(Arrays.toString(pwSenha.getPassword())))) {
+                        MenuProfessor mProf = new MenuProfessor(Integer.parseInt(txtMatricula.getText()));
+                        mProf.setVisible(true);
+                        this.dispose();
+                    }
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
         // Coordenador
         if (txtMatricula.getText().startsWith("3")) {
-            MenuCoordenador mCoordenador = new MenuCoordenador(Integer.parseInt(txtMatricula.getText()));
-            mCoordenador.setVisible(true);
-            this.dispose();
+            try {
+                Professor[] professores = pc.list();
+
+                for (Professor professor : professores) {
+                    if (professor.getMatricula() == Integer.parseInt(txtMatricula.getText()) && (professor.getSenha().equals(Arrays.toString(pwSenha.getPassword())))) {
+                        MenuCoordenador mCoordenador = new MenuCoordenador(Integer.parseInt(txtMatricula.getText()));
+                        mCoordenador.setVisible(true);
+                        this.dispose();
+                    }
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
         // Admin
         if (txtMatricula.getText().startsWith("4")) {
-            MenuAdmin mAdm = new MenuAdmin(Integer.parseInt(txtMatricula.getText()));
-            mAdm.setVisible(true);
-            this.dispose();
+            try {
+                Professor[] professores = pc.list();
+
+                for (Professor professor : professores) {
+                    if (professor.getMatricula() == Integer.parseInt(txtMatricula.getText()) && (professor.getSenha().equals(Arrays.toString(pwSenha.getPassword())))) {
+                        MenuAdmin mAdm = new MenuAdmin(Integer.parseInt(txtMatricula.getText()));
+                        mAdm.setVisible(true);
+                        this.dispose();
+                    }
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
