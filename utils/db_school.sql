@@ -41,7 +41,7 @@ CREATE TABLE `aluno` (
 
 LOCK TABLES `aluno` WRITE;
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
-INSERT INTO `aluno` VALUES (1,'Priscila Fukumoto','0000-00-00','prityumi@hotmail.com','195-321-542','Priscila Fukumoto');
+INSERT INTO `aluno` VALUES (1,'Priscila Fukumoto','0000-00-00','prityumi@hotmail.com','195-321-542','asdf');
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,8 +133,8 @@ CREATE TABLE `professor` (
   `data_nasc` date NOT NULL,
   `email` varchar(30) NOT NULL,
   `cpf` varchar(11) NOT NULL,
-  `id_curso` int(8) NOT NULL,
-  `id_disciplina` int(8) NOT NULL,
+  `id_curso` int(8),
+  `id_disciplina` int(8),
   `senha` varchar(50) NOT NULL,
   PRIMARY KEY (`matricula`),
   KEY `id_curso` (`id_curso`),
@@ -151,6 +151,9 @@ CREATE TABLE `professor` (
 LOCK TABLES `professor` WRITE;
 /*!40000 ALTER TABLE `professor` DISABLE KEYS */;
 /*!40000 ALTER TABLE `professor` ENABLE KEYS */;
+INSERT INTO `professor` VALUES (2,'Hugo Anjos','0000-00-00','hugo.h.anjos@hotmail.com','195-321-542', null, null, 'asdf');
+INSERT INTO `professor` VALUES (3,'Hugo Anjos','0000-00-00','hugo.h.anjos@hotmail.com','195-321-542', null, null, 'asdf');
+INSERT INTO `professor` VALUES (4,'Hugo Anjos','0000-00-00','hugo.h.anjos@hotmail.com','195-321-542', null, null, 'asdf');
 UNLOCK TABLES;
 
 --
