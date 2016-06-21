@@ -41,7 +41,7 @@ CREATE TABLE `aluno` (
 
 LOCK TABLES `aluno` WRITE;
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
-INSERT INTO `aluno` VALUES (1,'Priscila Fukumoto','0000-00-00','prityumi@hotmail.com','195-321-542','asdf');
+INSERT INTO `aluno` VALUES (1,'Priscila Fukumoto','2000-01-01','prityumi@hotmail.com','195-321-542','[a, s, d, f]');
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -151,9 +151,9 @@ CREATE TABLE `professor` (
 LOCK TABLES `professor` WRITE;
 /*!40000 ALTER TABLE `professor` DISABLE KEYS */;
 /*!40000 ALTER TABLE `professor` ENABLE KEYS */;
-INSERT INTO `professor` VALUES (2,'Hugo Anjos','0000-00-00','hugo.h.anjos@hotmail.com','195-321-542', null, null, 'asdf');
-INSERT INTO `professor` VALUES (3,'Hugo Anjos','0000-00-00','hugo.h.anjos@hotmail.com','195-321-542', null, null, 'asdf');
-INSERT INTO `professor` VALUES (4,'Hugo Anjos','0000-00-00','hugo.h.anjos@hotmail.com','195-321-542', null, null, 'asdf');
+INSERT INTO `professor` VALUES (2,'Hugo Anjos','2001-01-01','hugo.h.anjos@hotmail.com','195-321-542', null, null, '[a, s, d, f]');
+INSERT INTO `professor` VALUES (3,'Hugo Anjos','2001-01-01','hugo.h.anjos@hotmail.com','195-321-542', null, null, '[a, s, d, f]');
+INSERT INTO `professor` VALUES (4,'Hugo Anjos','2001-01-01','hugo.h.anjos@hotmail.com','195-321-542', null, null, '[a, s, d, f]');
 UNLOCK TABLES;
 
 --
