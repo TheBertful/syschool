@@ -17,6 +17,11 @@ public class MenuProfessor extends javax.swing.JFrame {
     public MenuProfessor() {
         initComponents();
     }
+    
+    public MenuProfessor(int id) {
+        initComponents();
+        this.id = id;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,16 +32,16 @@ public class MenuProfessor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lbDisciplinas = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnInscricoes = new javax.swing.JButton();
+        btnDisciplina = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Principal - Professor:");
 
-        jLabel1.setText("Minhas Disciplinas:");
+        lbDisciplinas.setText("Minhas Disciplinas:");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -51,9 +56,19 @@ public class MenuProfessor extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("Inscrições Pendentes");
+        btnInscricoes.setText("Inscrições Pendentes");
+        btnInscricoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInscricoesActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Editar Disciplina");
+        btnDisciplina.setText("Editar Disciplina");
+        btnDisciplina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDisciplinaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,30 +77,44 @@ public class MenuProfessor extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(lbDisciplinas)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnInscricoes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
+                        .addComponent(btnDisciplina)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(lbDisciplinas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnInscricoes)
+                    .addComponent(btnDisciplina))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnInscricoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInscricoesActionPerformed
+        // TODO add your handling code here:
+        // Construtor que receba a disciplina
+        InscricoesPendentes insc = new InscricoesPendentes();
+        insc.setVisible(true);
+    }//GEN-LAST:event_btnInscricoesActionPerformed
+
+    private void btnDisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisciplinaActionPerformed
+        // TODO add your handling code here:
+        // construtor que receba a disciplina selecionada
+        CadastrarDisciplina disc = new CadastrarDisciplina();
+        disc.setVisible(true);
+    }//GEN-LAST:event_btnDisciplinaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,11 +151,12 @@ public class MenuProfessor extends javax.swing.JFrame {
         });
     }
 
+    private int id;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnDisciplina;
+    private javax.swing.JButton btnInscricoes;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lbDisciplinas;
     // End of variables declaration//GEN-END:variables
 }

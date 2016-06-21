@@ -20,11 +20,12 @@ public class Professor {
     private String cpf;
     private int id_curso;
     private int id_disciplina;
-
+    private String senha;
+    
     public Professor() {
     }
 
-    public Professor(int matricula, String nome, Date data_nasc, String email, String cpf, int id_curso, int id_disciplina) {
+    public Professor(int matricula, String nome, Date data_nasc, String email, String cpf, int id_curso, int id_disciplina, String senha) {
         this.matricula = matricula;
         this.nome = nome;
         this.data_nasc = data_nasc;
@@ -32,6 +33,7 @@ public class Professor {
         this.cpf = cpf;
         this.id_curso = id_curso;
         this.id_disciplina = id_disciplina;
+        this.senha = senha;
     }
 
     public int getMatricula() {
@@ -89,6 +91,13 @@ public class Professor {
     public void setId_disciplina(int id_disciplina) {
         this.id_disciplina = id_disciplina;
     }
-    
-    
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+   
 }

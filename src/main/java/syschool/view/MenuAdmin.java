@@ -17,6 +17,11 @@ public class MenuAdmin extends javax.swing.JFrame {
     public MenuAdmin() {
         initComponents();
     }
+    
+    public MenuAdmin(int id) {
+        initComponents();
+        this.id = id;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,10 +73,25 @@ public class MenuAdmin extends javax.swing.JFrame {
         btnSair.setText("Sair");
 
         btnCadastroAlunos.setText("Cadastrar Alunos");
+        btnCadastroAlunos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroAlunosActionPerformed(evt);
+            }
+        });
 
         btnCadastroProfessores.setText("Cadastrar Professores");
+        btnCadastroProfessores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroProfessoresActionPerformed(evt);
+            }
+        });
 
         btnGerenciarCursos.setText("Gerenciar cursos");
+        btnGerenciarCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGerenciarCursosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,6 +128,24 @@ public class MenuAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnGerenciarCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerenciarCursosActionPerformed
+        // TODO add your handling code here:
+        GerenciarCursos gerenciarCursos = new GerenciarCursos();
+        gerenciarCursos.setVisible(true);
+    }//GEN-LAST:event_btnGerenciarCursosActionPerformed
+
+    private void btnCadastroProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroProfessoresActionPerformed
+        // TODO add your handling code here:
+        CadastrarProfessor cadastrarProf = new CadastrarProfessor();
+        cadastrarProf.setVisible(true);
+    }//GEN-LAST:event_btnCadastroProfessoresActionPerformed
+
+    private void btnCadastroAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroAlunosActionPerformed
+        // TODO add your handling code here:
+        CadastrarAluno cadastrarAluno = new CadastrarAluno();
+        cadastrarAluno.setVisible(true);
+    }//GEN-LAST:event_btnCadastroAlunosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -143,6 +181,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
     }
 
+    private int id;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastroAlunos;
     private javax.swing.JButton btnCadastroProfessores;

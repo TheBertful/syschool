@@ -16,8 +16,8 @@ import java.sql.ResultSet;
  */
 public class ProfessorController {
     public void inserir(Professor p) throws Exception{
-        String query = "INSERT INTO professor (matricula, nome, data_nasc, email, cpf, id_curso, id_disciplina) VALUES ('%d','%s','%s', '%s', '%s', '%d', '%d')";
-        query = String.format(query, p.getMatricula(), p.getNome(), p.getData_nasc(), p.getEmail(), p.getCpf(), p.getId_curso(), p.getId_disciplina());
+        String query = "INSERT INTO professor (matricula, nome, data_nasc, email, cpf, id_curso, id_disciplina) VALUES ('%d','%s','%s', '%s', '%s', '%d', '%d', '%s')";
+        query = String.format(query, p.getMatricula(), p.getNome(), p.getData_nasc(), p.getEmail(), p.getCpf(), p.getId_curso(), p.getId_disciplina(), p.getSenha());
                 
         Statement st = ConexaoMySQL.getConexao().createStatement();        
         st.executeUpdate(query);
@@ -48,6 +48,7 @@ public class ProfessorController {
             p.setCpf(rs.getString("cpf"));
             p.setId_curso(rs.getInt("id_curso"));
             p.setId_disciplina(rs.getInt("id_disciplina"));
+            p.setSenha(rs.getString("senha"));
             count++;
         }
         
