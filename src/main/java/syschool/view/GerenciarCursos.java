@@ -16,6 +16,7 @@ public class GerenciarCursos extends javax.swing.JFrame {
      */
     public GerenciarCursos() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -76,6 +77,11 @@ public class GerenciarCursos extends javax.swing.JFrame {
         btnExcluir.setText("Excluir");
 
         btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,6 +142,11 @@ public class GerenciarCursos extends javax.swing.JFrame {
         // TODO add your handling code here:
         // JDialog pra incluir
     }//GEN-LAST:event_btnIncluirActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments

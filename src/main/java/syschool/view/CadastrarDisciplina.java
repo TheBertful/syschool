@@ -16,6 +16,7 @@ public class CadastrarDisciplina extends javax.swing.JFrame {
      */
     public CadastrarDisciplina() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -52,6 +53,11 @@ public class CadastrarDisciplina extends javax.swing.JFrame {
         btnSalvar.setText("Salvar");
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,6 +103,11 @@ public class CadastrarDisciplina extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments

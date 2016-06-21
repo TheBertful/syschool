@@ -49,6 +49,7 @@ public class ProfessorController {
             p.setId_curso(rs.getInt("id_curso"));
             p.setId_disciplina(rs.getInt("id_disciplina"));
             p.setSenha(rs.getString("senha"));
+            professores[count] = p;
             count++;
         }
         

@@ -27,6 +27,7 @@ public class CadastrarAluno extends javax.swing.JFrame {
      */
     public CadastrarAluno() {
         initComponents();
+        setLocationRelativeTo(null);
         alunoController = new AlunoController();
         StringBuilder sb = new StringBuilder();
         sb.append("1");

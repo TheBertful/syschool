@@ -16,10 +16,12 @@ public class MenuAdmin extends javax.swing.JFrame {
      */
     public MenuAdmin() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     public MenuAdmin(int id) {
         initComponents();
+        setLocationRelativeTo(null);
         this.id = id;
     }
 
@@ -71,6 +73,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
 
         btnCadastroAlunos.setText("Cadastrar Alunos");
         btnCadastroAlunos.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +152,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         CadastrarAluno cadastrarAluno = new CadastrarAluno();
         cadastrarAluno.setVisible(true);
     }//GEN-LAST:event_btnCadastroAlunosActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
 
     /**
      * @param args the command line arguments

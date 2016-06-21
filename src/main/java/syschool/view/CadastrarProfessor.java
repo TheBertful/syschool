@@ -16,6 +16,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
      */
     public CadastrarProfessor() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -55,6 +56,11 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         lbEmail.setText("E-Mail:");
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         lbDataNasc.setText("Data de Nascimento:");
 
@@ -186,7 +192,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnIncluirDisciplina)
                     .addComponent(btnRemoverDisciplina))
                 .addGap(18, 18, 18)
@@ -198,6 +204,11 @@ public class CadastrarProfessor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
