@@ -18,16 +18,18 @@ public class Aluno {
     private Date data_nasc;
     private String email;
     private String cpf;
+    private String senha;
     
     public Aluno() {
     }
 
-    public Aluno(int matricula, String nome, Date data_nasc, String email, String cpf) {
+    public Aluno(int matricula, String nome, Date data_nasc, String email, String cpf, String senha) {
         this.matricula = matricula;
         this.nome = nome;
         this.data_nasc = data_nasc;
         this.email = email;
-        this.cpf = cpf;       
+        this.cpf = cpf;
+        this.senha = senha;
     }
 
     public int getMatricula() {
@@ -69,6 +71,12 @@ public class Aluno {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    
-    
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }   
 }
