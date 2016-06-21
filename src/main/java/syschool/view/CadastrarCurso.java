@@ -5,6 +5,14 @@
  */
 package syschool.view;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import syschool.db.ConexaoMySQL;
+
 /**
  *
  * @author Hugo
@@ -45,6 +53,11 @@ public class CadastrarCurso extends javax.swing.JFrame {
         lbCoordenador.setText("Coordenador:");
 
         cboxCoordenador.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Selecione um coordenador>", "Teste 1", "Teste 2" }));
+        cboxCoordenador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxCoordenadorActionPerformed(evt);
+            }
+        });
 
         lbTurno.setText("Turno:");
 
@@ -118,6 +131,27 @@ public class CadastrarCurso extends javax.swing.JFrame {
         // TODO add your handling code here:
         // Salvar o curso, inserir novo professor como coordenador, retornar nova matricula
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void cboxCoordenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCoordenadorActionPerformed
+        /*PreparedStatement stmt = connection.prepareStatement("select nome_curso from curso");
+        ResultSet rs = stmt.executeQuery();*/
+        
+
+        try{
+            
+            String query = "SELECT count(*) FROM curso";
+            Statement st = ConexaoMySQL.getConexao().createStatement();
+            ResultSet rs = st.executeQuery(query);
+        
+            while(rs.next()){
+                cboxCoordenador.addItem(rs.getString("curso"));
+            }
+
+        } catch (Exception ex){   
+            Logger.getLogger(CadastrarCurso.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+    }//GEN-LAST:event_cboxCoordenadorActionPerformed
 
     /**
      * @param args the command line arguments
