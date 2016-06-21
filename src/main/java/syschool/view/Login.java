@@ -161,7 +161,7 @@ public class Login extends javax.swing.JFrame {
                 
                 for (Aluno aluno : alunos) {
                     if ((aluno.getMatricula() == Integer.parseInt(txtMatricula.getText())) && (aluno.getSenha().equals(Arrays.toString(pwSenha.getPassword())))) {
-                        MenuAluno mAluno = new MenuAluno(Integer.parseInt(txtMatricula.getText()));
+                        MenuAluno mAluno = new MenuAluno(Integer.parseInt(txtMatricula.getText()), aluno.getNome());
                         mAluno.setVisible(true);
                         this.dispose();
                     }
@@ -178,7 +178,7 @@ public class Login extends javax.swing.JFrame {
                 
                 for (Professor professor : professores) {
                     if (professor.getMatricula() == Integer.parseInt(txtMatricula.getText()) && (professor.getSenha().equals(Arrays.toString(pwSenha.getPassword())))) {
-                        MenuProfessor mProf = new MenuProfessor(Integer.parseInt(txtMatricula.getText()));
+                        MenuProfessor mProf = new MenuProfessor(Integer.parseInt(txtMatricula.getText()), professor.getNome());
                         mProf.setVisible(true);
                         this.dispose();
                     }
@@ -195,7 +195,7 @@ public class Login extends javax.swing.JFrame {
 
                 for (Professor professor : professores) {
                     if (professor.getMatricula() == Integer.parseInt(txtMatricula.getText()) && (professor.getSenha().equals(Arrays.toString(pwSenha.getPassword())))) {
-                        MenuCoordenador mCoordenador = new MenuCoordenador(Integer.parseInt(txtMatricula.getText()));
+                        MenuCoordenador mCoordenador = new MenuCoordenador(Integer.parseInt(txtMatricula.getText()), professor.getNome());
                         mCoordenador.setVisible(true);
                         this.dispose();
                     }
@@ -212,7 +212,7 @@ public class Login extends javax.swing.JFrame {
 
                 for (Professor professor : professores) {
                     if (professor.getMatricula() == Integer.parseInt(txtMatricula.getText()) && (professor.getSenha().equals(Arrays.toString(pwSenha.getPassword())))) {
-                        MenuAdmin mAdm = new MenuAdmin(Integer.parseInt(txtMatricula.getText()));
+                        MenuAdmin mAdm = new MenuAdmin(Integer.parseInt(txtMatricula.getText()), professor.getNome());
                         mAdm.setVisible(true);
                         this.dispose();
                     }

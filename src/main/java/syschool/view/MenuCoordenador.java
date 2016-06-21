@@ -19,10 +19,11 @@ public class MenuCoordenador extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
     
-    public MenuCoordenador(int id) {
+    public MenuCoordenador(int id, String nome) {
         initComponents();
         setLocationRelativeTo(null);
         this.id = id;
+        this.setTitle("Menu Principal - Coordenador - " + nome);
     }
 
     /**
@@ -63,7 +64,7 @@ public class MenuCoordenador extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Menu Principal - Coordenador:");
+        setTitle("Menu Principal - Coordenador");
 
         lbDisciplinas.setText("Disciplinas - Curso:");
 

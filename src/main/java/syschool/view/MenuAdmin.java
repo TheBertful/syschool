@@ -19,10 +19,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
     
-    public MenuAdmin(int id) {
+    public MenuAdmin(int id, String nome) {
         initComponents();
         setLocationRelativeTo(null);
         this.id = id;
+        this.setTitle("Menu Principal - Administrador - " + nome);
     }
 
     /**

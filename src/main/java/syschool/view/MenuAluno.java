@@ -19,10 +19,11 @@ public class MenuAluno extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
     
-    public MenuAluno(int id) {
+    public MenuAluno(int id, String nome) {
         initComponents();
         setLocationRelativeTo(null);
         this.id = id;
+        this.setTitle("Menu Principal - Aluno - " + nome);
     }
 
     /**
@@ -42,7 +43,7 @@ public class MenuAluno extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Menu Principal - Aluno:");
+        setTitle("Menu Principal - Aluno");
 
         jLabel1.setText("Minhas Disciplinas:");
 
