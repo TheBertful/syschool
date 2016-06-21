@@ -12,6 +12,9 @@ package syschool.models;
 public class Inscricao {
     
     private int id_inscricao;
+    private String status;
+    private int id_disciplina;
+    private int matricula;
 
     public int getId_inscricao() {
         return id_inscricao;
@@ -44,10 +47,7 @@ public class Inscricao {
     public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
-    private String status;
-    private int id_disciplina;
-    private int matricula;
-    
+        
     public Inscricao(){
     }
     

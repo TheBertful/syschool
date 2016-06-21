@@ -5,17 +5,30 @@
  */
 package syschool.view;
 
+import syschool.controllers.InscricaoController;
+import syschool.models.Inscricao;
+import syschool.view.tablemodel.InscricaoTableModel;
+
 /**
  *
  * @author Administrador
  */
 public class InscricoesPendentes extends javax.swing.JFrame {
+    
+    private Inscricao inscricao;
+    private InscricaoController inscricaoController;
+    private InscricaoTableModel inscricaoTableModel;
 
     /**
      * Creates new form InscricoesPendentes
      */
     public InscricoesPendentes() {
+        
         initComponents();
+        inscricao = new Inscricao();
+        inscricaoController = new InscricaoController();
+        inscricaoTableModel = new InscricaoTableModel();
+        tbInscricoes.setModel(inscricaoTableModel);
         setLocationRelativeTo(null);
     }
 
@@ -29,7 +42,7 @@ public class InscricoesPendentes extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbInscricoes = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -37,7 +50,7 @@ public class InscricoesPendentes extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Alunos - Incrições Pendentes");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbInscricoes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -48,7 +61,7 @@ public class InscricoesPendentes extends javax.swing.JFrame {
                 "Aluno", "Disciplina"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbInscricoes);
 
         jButton1.setText("Sair");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +150,6 @@ public class InscricoesPendentes extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbInscricoes;
     // End of variables declaration//GEN-END:variables
 }
