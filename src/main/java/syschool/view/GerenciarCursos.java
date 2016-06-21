@@ -5,17 +5,26 @@
  */
 package syschool.view;
 
+import syschool.models.Turma;
+import syschool.view.tablemodel.TurmaTableModel;
+
 /**
  *
  * @author Hugo
  */
 public class GerenciarCursos extends javax.swing.JFrame {
+    
+    private TurmaTableModel turmaTableModel;
+    private Turma turma;
 
     /**
      * Creates new form GerenciarCursos
      */
     public GerenciarCursos() {
         initComponents();
+        turma = new Turma();
+        turmaTableModel = new TurmaTableModel();
+        tbTurma.setModel(turmaTableModel);
         setLocationRelativeTo(null);
     }
 
@@ -33,7 +42,7 @@ public class GerenciarCursos extends javax.swing.JFrame {
         btnEditarCurso = new javax.swing.JButton();
         lbDisciplinas = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbTurma = new javax.swing.JTable();
         btnIncluir = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnNovo = new javax.swing.JButton();
@@ -50,7 +59,7 @@ public class GerenciarCursos extends javax.swing.JFrame {
 
         lbDisciplinas.setText("Disciplinas:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbTurma.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -61,7 +70,7 @@ public class GerenciarCursos extends javax.swing.JFrame {
                 "Nome", "Horário", "Professor", "Alunos"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbTurma);
 
         btnIncluir.setText("Incluir");
         btnIncluir.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +202,7 @@ public class GerenciarCursos extends javax.swing.JFrame {
     private javax.swing.JButton btnSair;
     private javax.swing.JComboBox cboxCursos;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbDisciplinas;
+    private javax.swing.JTable tbTurma;
     // End of variables declaration//GEN-END:variables
 }
