@@ -61,28 +61,29 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lbDisciplinas" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
+                                  <Component id="btnRemoverDisciplina" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="159" max="32767" attributes="0"/>
+                                  <Component id="btnIncluirDisciplina" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="btnCancelar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="btnSalvar" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane1" alignment="0" pref="0" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="txtDataNasc" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lbCoordenador" min="-2" max="-2" attributes="0"/>
-                                          <Component id="cboxCurso" min="-2" pref="168" max="-2" attributes="0"/>
-                                      </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lbDataNasc" max="32767" attributes="0"/>
+                                      <Component id="txtData" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="lbDataNasc" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="btnRemoverDisciplina" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="btnIncluirDisciplina" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="119" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lbCoordenador" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cboxCurso" min="-2" pref="168" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -117,17 +118,17 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbDataNasc" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbCoordenador" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="rbtnSim" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="rbtnNao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbDataNasc" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtDataNasc" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cboxCurso" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtData" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="lbDisciplinas" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="122" max="-2" attributes="0"/>
@@ -172,11 +173,6 @@
         <Property name="text" type="java.lang.String" value="Nome:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtDataNasc">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="01/01/1991"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="txtNome">
     </Component>
     <Component class="javax.swing.JLabel" name="lbCPF">
@@ -203,6 +199,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lbCoordenador">
       <Properties>
@@ -287,6 +286,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Remover Disciplina"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="txtData">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="yyyy-mm-dd" subtype="-1" type="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="aaaa-mm-dd"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDataActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

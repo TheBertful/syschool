@@ -51,6 +51,11 @@ public class CadastrarCurso extends javax.swing.JFrame {
         cboxTurno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Integral", "Matutino", "Diurno", "Noturno", " " }));
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +113,11 @@ public class CadastrarCurso extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        // TODO add your handling code here:
+        // Salvar o curso, inserir novo professor como coordenador, retornar nova matricula
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -185,6 +185,7 @@ public class CadastrarAluno extends javax.swing.JFrame {
         aluno = new Aluno(Integer.parseInt(txtMatricula.getText()),txtNome.getText(), d, txtEmail.getText(), txtCPF.getText(), Arrays.toString(pwSenha.getPassword()));
         try {
             alunoController.inserir(aluno);
+            this.dispose();
         } catch (Exception ex) {
             Logger.getLogger(CadastrarAluno.class.getName()).log(Level.SEVERE, null, ex);
         }

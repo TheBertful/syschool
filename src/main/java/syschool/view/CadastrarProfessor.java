@@ -5,6 +5,8 @@
  */
 package syschool.view;
 
+import java.sql.Date;
+
 /**
  *
  * @author Hugo
@@ -33,7 +35,6 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         lbDataNasc = new javax.swing.JLabel();
         lbNome = new javax.swing.JLabel();
-        txtDataNasc = new javax.swing.JTextField();
         txtNome = new javax.swing.JTextField();
         lbCPF = new javax.swing.JLabel();
         lbMatricula = new javax.swing.JLabel();
@@ -49,6 +50,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         lbDisciplinas = new javax.swing.JLabel();
         btnIncluirDisciplina = new javax.swing.JButton();
         btnRemoverDisciplina = new javax.swing.JButton();
+        txtData = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de novo professor:");
@@ -66,8 +68,6 @@ public class CadastrarProfessor extends javax.swing.JFrame {
 
         lbNome.setText("Nome:");
 
-        txtDataNasc.setText("01/01/1991");
-
         lbCPF.setText("CPF:");
 
         lbMatricula.setText("Matrícula:");
@@ -77,6 +77,11 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         txtMatricula.setEditable(false);
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         lbCoordenador.setText("Coordenador:");
 
@@ -104,6 +109,14 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         btnIncluirDisciplina.setText("Incluir Disciplina");
 
         btnRemoverDisciplina.setText("Remover Disciplina");
+
+        txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-mm-dd"))));
+        txtData.setText("aaaa-mm-dd");
+        txtData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -138,24 +151,25 @@ public class CadastrarProfessor extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbDisciplinas)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnRemoverDisciplina)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                                    .addComponent(btnIncluirDisciplina))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
                                     .addComponent(btnCancelar)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(btnSalvar))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(119, 119, 119)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lbCoordenador)
-                                            .addComponent(cboxCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(lbDataNasc, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnRemoverDisciplina)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnIncluirDisciplina))))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(lbDataNasc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtData))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lbCoordenador)
+                                        .addComponent(cboxCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap(15, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -179,15 +193,15 @@ public class CadastrarProfessor extends javax.swing.JFrame {
                     .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbDataNasc)
                     .addComponent(lbCoordenador)
                     .addComponent(rbtnSim)
-                    .addComponent(rbtnNao))
+                    .addComponent(rbtnNao)
+                    .addComponent(lbDataNasc))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cboxCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(cboxCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addComponent(lbDisciplinas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -209,6 +223,16 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void txtDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        // TODO add your handling code here:
+        Date d = Date.valueOf(txtData.getText());
+        
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,7 +287,7 @@ public class CadastrarProfessor extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtnNao;
     private javax.swing.JRadioButton rbtnSim;
     private javax.swing.JTextField txtCPF;
-    private javax.swing.JTextField txtDataNasc;
+    private javax.swing.JFormattedTextField txtData;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtNome;
