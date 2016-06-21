@@ -8,8 +8,8 @@ package syschool.view.tablemodel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
+import syschool.controllers.InscricaoController;
 import syschool.models.Inscricao;
-import syschool.models.Disciplina;
 import syschool.models.Aluno;
 
 /**
@@ -45,16 +45,19 @@ public class InscricaoTableModel extends AbstractTableModel {
         return 4;
     }
     
+    @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch(columnIndex){
-            case 0:
-                return listaInscricoes[rowIndex].getId_turma();
+            case 0: // nome aluno
+                Aluno a = new Aluno();
+                
+                return listaInscricoes[rowIndex].getId_inscricao();
             
             case 1:
-                return listaInscricoes[rowIndex].getHorario();                
+                return listaInscricoes[rowIndex].getMatricula();                
                         
             default:               
-                return listaInscricoes[rowIndex].getId_turma();
+                return listaInscricoes[rowIndex].getId_inscricao();
         }
     }
     

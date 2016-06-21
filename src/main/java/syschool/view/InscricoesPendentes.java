@@ -5,17 +5,30 @@
  */
 package syschool.view;
 
+import syschool.controllers.InscricaoController;
+import syschool.models.Inscricao;
+import syschool.view.tablemodel.InscricaoTableModel;
+
 /**
  *
  * @author Administrador
  */
 public class InscricoesPendentes extends javax.swing.JFrame {
+    
+    private Inscricao inscricao;
+    private InscricaoController inscricaoController;
+    private InscricaoTableModel inscricaoTableModel;
 
     /**
      * Creates new form InscricoesPendentes
      */
     public InscricoesPendentes() {
+        
         initComponents();
+        inscricao = new Inscricao();
+        inscricaoController = new InscricaoController();
+        inscricaoTableModel = new InscricaoTableModel();
+        tbInscricoes.setModel(inscricaoTableModel);
         setLocationRelativeTo(null);
     }
 
