@@ -32,6 +32,7 @@ public class InscricaoTableModel extends AbstractTableModel {
     
     @Override
     public int getRowCount() {
+        if(listaInscricoes.length == 0) return 0;
         if(listaInscricoes.length > 0){
             return listaInscricoes.length;
         }else{

@@ -42,10 +42,10 @@ public class InscricaoController {
         while (rs.next())
         { 
             Inscricao i = new Inscricao();
-            i.setId_inscricao(rs.getInt("Id_Inscricao"));
-            i.setStatus(rs.getString("Status"));
-            i.setId_disciplina(rs.getInt("Id_Disciplina"));
-            i.setMatricula(rs.getInt("Matricula"));
+            i.setId_inscricao(rs.getInt("id_inscricao"));
+            i.setStatus(rs.getString("status"));
+            i.setId_disciplina(rs.getInt("id_disciplina"));
+            i.setMatricula(rs.getInt("matricula"));
             
             inscricao[count] = i;
             count++;

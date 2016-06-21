@@ -8,7 +8,6 @@ package syschool.db;
 import syschool.misc.ReadJSONConfig;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 
 /**
