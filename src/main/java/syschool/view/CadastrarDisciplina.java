@@ -5,6 +5,12 @@
  */
 package syschool.view;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import syschool.db.ConexaoMySQL;
+
 /**
  *
  * @author Hugo
@@ -45,6 +51,11 @@ public class CadastrarDisciplina extends javax.swing.JFrame {
         lbProfessor.setText("Professor:");
 
         cboxProfessor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Selecione um professor>", "Teste 1", "Teste 2" }));
+        cboxProfessor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxProfessorActionPerformed(evt);
+            }
+        });
 
         lbHorario.setText("Horário:");
 
@@ -118,6 +129,23 @@ public class CadastrarDisciplina extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void cboxProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxProfessorActionPerformed
+          try{
+            
+            String query = "SELECT count(*) FROM professor";
+            Statement st = ConexaoMySQL.getConexao().createStatement();
+            ResultSet rs = st.executeQuery(query);
+        
+            while(rs.next()){
+                cboxProfessor.addItem(rs.getString("curso"));
+                
+            }
+
+        } catch (Exception ex){   
+            Logger.getLogger(CadastrarCurso.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cboxProfessorActionPerformed
 
     /**
      * @param args the command line arguments
