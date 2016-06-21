@@ -6,11 +6,9 @@
 package syschool.view;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import syschool.db.ConexaoMySQL;
 
 /**
@@ -133,9 +131,7 @@ public class CadastrarCurso extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void cboxCoordenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCoordenadorActionPerformed
-        /*PreparedStatement stmt = connection.prepareStatement("select nome_curso from curso");
-        ResultSet rs = stmt.executeQuery();*/
-        
+               
 
         try{
             
@@ -150,7 +146,7 @@ public class CadastrarCurso extends javax.swing.JFrame {
         } catch (Exception ex){   
             Logger.getLogger(CadastrarCurso.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }
+    
     }//GEN-LAST:event_cboxCoordenadorActionPerformed
 
     /**
