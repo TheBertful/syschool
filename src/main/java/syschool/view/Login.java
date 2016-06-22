@@ -195,7 +195,7 @@ public class Login extends javax.swing.JFrame {
 
                 for (Professor professor : professores) {
                     if (professor.getMatricula() == Integer.parseInt(txtMatricula.getText()) && (professor.getSenha().equals(Arrays.toString(pwSenha.getPassword())))) {
-                        MenuCoordenador mCoordenador = new MenuCoordenador(Integer.parseInt(txtMatricula.getText()), professor.getNome());
+                        MenuCoordenador mCoordenador = new MenuCoordenador(Integer.parseInt(txtMatricula.getText()), professor.getNome(), professor.getId_curso());
                         mCoordenador.setVisible(true);
                         this.dispose();
                     }

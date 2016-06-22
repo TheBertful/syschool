@@ -27,6 +27,10 @@ public class GerenciarCursos extends javax.swing.JFrame {
         tbTurma.setModel(turmaTableModel);
         setLocationRelativeTo(null);
     }
+    
+    public void atualizarTabela(){
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,6 +56,11 @@ public class GerenciarCursos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         cboxCursos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Selecione um curso>", "Teste 1", "Teste 2", "Teste 3", " " }));
+        cboxCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxCursosActionPerformed(evt);
+            }
+        });
 
         btnNovoCurso.setText("Novo Curso");
 
@@ -156,6 +165,10 @@ public class GerenciarCursos extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void cboxCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCursosActionPerformed
+        // TODO add your handling code here:        
+    }//GEN-LAST:event_cboxCursosActionPerformed
 
     /**
      * @param args the command line arguments

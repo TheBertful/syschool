@@ -5,25 +5,48 @@
  */
 package syschool.view;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import syschool.controllers.ProfessorController;
+import syschool.db.ConexaoMySQL;
+import syschool.models.Professor;
+
 /**
  *
  * @author Administrador
  */
 public class MenuCoordenador extends javax.swing.JFrame {
+    
+    Professor professor;
+    ProfessorController professorController;
 
     /**
      * Creates new form MenuCoordenador
      */
     public MenuCoordenador() {
-        initComponents();
+        initComponents();        
         setLocationRelativeTo(null);
     }
     
-    public MenuCoordenador(int id, String nome) {
-        initComponents();
+    public MenuCoordenador(int id, String nome, int id_curso) {
+        initComponents();        
         setLocationRelativeTo(null);
         this.id = id;
+        this.id_curso = id_curso;
+        try{
+            String query = "SELECT nome_curso FROM curso WHERE id_curso = "+id_curso;
+            Statement st = ConexaoMySQL.getConexao().createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()){
+                this.nome_curso = rs.getString("nome_curso");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(MenuCoordenador.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.setTitle("Menu Principal - Coordenador - " + nome);
+        lbCurso.setText(nome_curso);
     }
 
     /**
@@ -256,6 +279,9 @@ public class MenuCoordenador extends javax.swing.JFrame {
     }
 
     private int id;
+    private int id_curso;
+    private String nome_curso;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;

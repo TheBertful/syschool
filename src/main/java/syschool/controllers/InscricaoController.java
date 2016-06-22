@@ -35,7 +35,7 @@ public class InscricaoController {
         }
         Inscricao[] inscricao= new Inscricao[numInscricao];
         
-        query = "SELECT * FROM aluno";
+        query = "SELECT * FROM inscricao";
         rs = st.executeQuery(query);        
         
         int count = 0;
