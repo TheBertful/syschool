@@ -16,7 +16,15 @@ import java.util.ArrayList;
  * @author Administrador
  */
 public class DisciplinaController {
+    
+    private int idCoordenador; 
 
+    public DisciplinaController() { }
+    
+    public DisciplinaController(int idCoordenador) {
+        this.idCoordenador = idCoordenador;
+    }
+     
     public void inserir(Disciplina d) throws Exception {
         String query = "INSERT INTO disciplina (id_disciplina, nome_disciplina) VALUES ('%d','%s', '%d', '%s')";
         query = String.format(query, d.getId_disciplina(), d.getNome_disciplina(), d.getId_curso(), d.getHorario());
@@ -61,7 +69,7 @@ public class DisciplinaController {
         
         String query = "SELECT DISTINCT nome_disciplina, horario,\n"
                 + "(SELECT COUNT(*) FROM inscricao, disciplina WHERE inscricao.id_disciplina = disciplina.id_disciplina AND inscricao.status LIKE 'A') AS alunos,\n"
-                + "(SELECT COUNT(*) FROM inscricao, disciplina WHERE inscricao.id_disciplina = disciplina.id_disciplina AND inscricao.status LIKE 'P') AS pendentes\n"
+                + "(SELECT COUNT(*) FROM inscricao, disciplina WHERE inscricao.id_disciplina = disciplina.id_disciplina AND inscricao.status LIKE 'P') AS pendentes \n"
                 + "FROM disciplina, inscricao;";
         Disciplina d;
         Statement st = ConexaoMySQL.getConexao().createStatement();
@@ -76,5 +84,26 @@ public class DisciplinaController {
         }
         
         return disciplinas;
+    }
+    
+    public ArrayList<Disciplina> listDisciplinasCurso() throws Exception {
+        ArrayList<Disciplina> disciplinas = new ArrayList();
+        
+        String query = "select d.nome_disciplina, d.horario, p.nome as professor "
+                + "from disciplina d, professor p "
+                + "where d.id_disciplina = d.id_disciplina and d.id_curso = "+idCoordenador;
+        Disciplina d;
+        Statement st = ConexaoMySQL.getConexao().createStatement();
+        ResultSet rs = st.executeQuery(query);
+                
+        while (rs.next()) {
+            d = new Disciplina(rs.getString("nome_disciplina"),
+                               rs.getString("horario"),
+                               rs.getString("professor"));
+            disciplinas.add(d);
+        }
+        
+        return disciplinas;
+        
     }
 }

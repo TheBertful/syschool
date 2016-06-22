@@ -16,6 +16,7 @@ public class Disciplina {
     private String horario;
     private int alunos;
     private int inscricoesPendentes;
+    private String professor;
     
     public Disciplina(int id_disciplina, String nome_disciplina, int id_curso, String horario) {
         this.id_disciplina = id_disciplina;
@@ -29,6 +30,12 @@ public class Disciplina {
         this.horario = horario;
         this.alunos = alunos;
         this.inscricoesPendentes = inscricoesPendentes;
+    }
+    
+    public Disciplina(String nome_disciplina, String horario, String professor) {
+        this.nome_disciplina = nome_disciplina;
+        this.horario = horario;
+        this.professor = professor;
     }
     
     public Disciplina() {
@@ -80,6 +87,14 @@ public class Disciplina {
 
     public void setInscricoesPendentes(int inscricoesPendentes) {
         this.inscricoesPendentes = inscricoesPendentes;
+    }
+
+    public String getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(String professor) {
+        this.professor = professor;
     }
     
     
