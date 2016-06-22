@@ -17,12 +17,12 @@ import java.util.ArrayList;
  */
 public class DisciplinaController {
     
-    private int idCoordenador; 
+    private int idCurso; 
 
     public DisciplinaController() { }
     
-    public DisciplinaController(int idCoordenador) {
-        this.idCoordenador = idCoordenador;
+    public DisciplinaController(int idCurso) {
+        this.idCurso = idCurso;
     }
      
     public void inserir(Disciplina d) throws Exception {
@@ -91,7 +91,7 @@ public class DisciplinaController {
         
         String query = "select d.nome_disciplina, d.horario, p.nome as professor "
                 + "from disciplina d, professor p "
-                + "where d.id_disciplina = d.id_disciplina and d.id_curso = "+idCoordenador;
+                + "where d.id_disciplina = d.id_disciplina and d.id_curso = "+idCurso;
         Disciplina d;
         Statement st = ConexaoMySQL.getConexao().createStatement();
         ResultSet rs = st.executeQuery(query);
