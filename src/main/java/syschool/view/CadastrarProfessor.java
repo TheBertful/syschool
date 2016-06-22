@@ -6,6 +6,11 @@
 package syschool.view;
 
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import syschool.db.ConexaoMySQL;
 
 /**
  *
@@ -89,7 +94,12 @@ public class CadastrarProfessor extends javax.swing.JFrame {
 
         rbtnNao.setText("Não");
 
-        cboxCurso.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Curso>", "Teste 1 ", "Teste 2", "Teste 3" }));
+        cboxCurso.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "- - Curso - -", "Ciência da computação", "Administração", "Psicologia" }));
+        cboxCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxCursoActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -233,6 +243,22 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         Date d = Date.valueOf(txtData.getText());
         
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void cboxCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCursoActionPerformed
+        try{
+            
+            String query = "SELECT * FROM curso";
+            Statement st = ConexaoMySQL.getConexao().createStatement();
+            ResultSet rs = st.executeQuery(query);
+        
+            while(rs.next()){
+                cboxCurso.addItem(rs.getString("nome_curso"));
+            }
+
+        } catch (Exception ex){   
+            Logger.getLogger(CadastrarCurso.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cboxCursoActionPerformed
 
     /**
      * @param args the command line arguments

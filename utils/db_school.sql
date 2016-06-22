@@ -79,6 +79,10 @@ CREATE TABLE `disciplina` (
   `id_disciplina` int(8) NOT NULL AUTO_INCREMENT,
   `nome_disciplina` varchar(50) DEFAULT NULL,
   `id_curso` int(8),
+<<<<<<< HEAD
+=======
+  `horario` varchar(5), 
+>>>>>>> origin/master
   PRIMARY KEY (`id_disciplina`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

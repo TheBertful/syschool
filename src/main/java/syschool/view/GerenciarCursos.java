@@ -5,6 +5,11 @@
  */
 package syschool.view;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import syschool.db.ConexaoMySQL;
 import syschool.models.Turma;
 import syschool.view.tablemodel.TurmaTableModel;
 
@@ -55,7 +60,11 @@ public class GerenciarCursos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+<<<<<<< HEAD
         cboxCursos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Selecione um curso>", "Teste 1", "Teste 2", "Teste 3", " " }));
+=======
+        cboxCursos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Selecione um curso>", "Ciência da Computação", "Administração", "Psicologia" }));
+>>>>>>> origin/master
         cboxCursos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboxCursosActionPerformed(evt);
@@ -167,7 +176,23 @@ public class GerenciarCursos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void cboxCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCursosActionPerformed
+<<<<<<< HEAD
         // TODO add your handling code here:        
+=======
+         try{
+            
+            String query = "SELECT * FROM curso";
+            Statement st = ConexaoMySQL.getConexao().createStatement();
+            ResultSet rs = st.executeQuery(query);
+        
+            while(rs.next()){
+                cboxCursos.addItem(rs.getString("nome_curso"));
+            }
+
+        } catch (Exception ex){   
+            Logger.getLogger(CadastrarCurso.class.getName()).log(Level.SEVERE, null, ex);
+        }
+>>>>>>> origin/master
     }//GEN-LAST:event_cboxCursosActionPerformed
 
     /**
