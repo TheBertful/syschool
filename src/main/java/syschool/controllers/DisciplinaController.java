@@ -131,4 +131,12 @@ public class DisciplinaController {
         return disciplinas;
         
     }
+    
+    public ArrayList<Inscricao> listInscricoes() throws Exception {
+        ArrayList<Inscricao> inscricoes = new ArrayList();
+        
+        String query = "SELECT a.nome_aluno as aluno, d.nome_disciplina as disciplina "
+                + "FROM aluno a, disciplina d, inscricao i "
+                + "where i.id_disciplina = d.id_disciplina and a.matricula = i.matricula";
+    }
 }
