@@ -86,6 +86,31 @@ public class DisciplinaController {
         return disciplinas;
     }
     
+    public ArrayList<Disciplina> listProfessor() throws Exception {
+        ArrayList<Disciplina> disciplinas = new ArrayList();
+        
+        String query = "SELECT DISTINCT d.nome_disciplina, c.nome_curso, d.horario,\n"
+                + "(SELECT COUNT(*) FROM inscricao, disciplina WHERE inscricao.id_disciplina = disciplina.id_disciplina AND inscricao.status LIKE 'A') AS alunos,\n"
+                + "(SELECT COUNT(*) FROM inscricao, disciplina WHERE inscricao.id_disciplina = disciplina.id_disciplina AND inscricao.status LIKE 'P') AS pendentes \n"
+                + "FROM disciplina d, curso c, inscricao "
+                + "where d.id_curso = c.id_curso";
+        Disciplina d;
+        Statement st = ConexaoMySQL.getConexao().createStatement();
+        ResultSet rs = st.executeQuery(query);
+                
+        while (rs.next()) {
+            d = new Disciplina(rs.getString("nome_disciplina"),
+                               rs.getString("nome_curso"),
+                               rs.getString("horario"),
+                               rs.getInt("alunos"),
+                               rs.getInt("pendentes"));
+            disciplinas.add(d);
+        }
+        
+        return disciplinas;
+    }
+    
+    
     public ArrayList<Disciplina> listDisciplinasCurso() throws Exception {
         ArrayList<Disciplina> disciplinas = new ArrayList();
         
