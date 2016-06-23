@@ -5,25 +5,36 @@
  */
 package syschool.view;
 
+import syschool.view.tablemodel.AlunoTableModel;
+
 /**
  *
  * @author Administrador
  */
 public class MenuAluno extends javax.swing.JFrame {
-
+    
+    AlunoTableModel alunoTableModel;
     /**
      * Creates new form MenuAluno
      */
     public MenuAluno() {
         initComponents();
         setLocationRelativeTo(null);
+        
+        
+        
     }
     
     public MenuAluno(int id, String nome) {
         initComponents();
+        alunoTableModel = new AlunoTableModel();
+        tbDisciplinas.format(alunoTableModel);
+        
         setLocationRelativeTo(null);
         this.id = id;
         this.setTitle("Menu Principal - Aluno - " + nome);
+        
+        
     }
 
     /**
@@ -37,7 +48,7 @@ public class MenuAluno extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbDisciplinas = new javax.swing.JTable();
         btnCancelar = new javax.swing.JButton();
         btnInscricao = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
@@ -47,7 +58,7 @@ public class MenuAluno extends javax.swing.JFrame {
 
         jLabel1.setText("Minhas Disciplinas:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbDisciplinas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -58,7 +69,7 @@ public class MenuAluno extends javax.swing.JFrame {
                 "Nome", "Horário", "Status"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbDisciplinas);
 
         btnCancelar.setText("Cancelar Inscrição");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -179,6 +190,6 @@ public class MenuAluno extends javax.swing.JFrame {
     private javax.swing.JButton btnSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbDisciplinas;
     // End of variables declaration//GEN-END:variables
 }
