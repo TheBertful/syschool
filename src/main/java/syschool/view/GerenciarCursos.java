@@ -60,11 +60,6 @@ public class GerenciarCursos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-<<<<<<< HEAD
-        cboxCursos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Selecione um curso>", "Teste 1", "Teste 2", "Teste 3", " " }));
-=======
-        cboxCursos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Selecione um curso>", "Ciência da Computação", "Administração", "Psicologia" }));
->>>>>>> origin/master
         cboxCursos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboxCursosActionPerformed(evt);
@@ -176,9 +171,9 @@ public class GerenciarCursos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void cboxCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCursosActionPerformed
-<<<<<<< HEAD
+
         // TODO add your handling code here:        
-=======
+
          try{
             
             String query = "SELECT * FROM curso";
@@ -192,7 +187,7 @@ public class GerenciarCursos extends javax.swing.JFrame {
         } catch (Exception ex){   
             Logger.getLogger(CadastrarCurso.class.getName()).log(Level.SEVERE, null, ex);
         }
->>>>>>> origin/master
+
     }//GEN-LAST:event_cboxCursosActionPerformed
 
     /**

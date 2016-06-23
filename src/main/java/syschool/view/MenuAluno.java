@@ -28,7 +28,7 @@ public class MenuAluno extends javax.swing.JFrame {
     public MenuAluno(int id, String nome) {
         initComponents();
         alunoTableModel = new AlunoTableModel();
-        tbDisciplinas.format(alunoTableModel);
+        tbDisciplinas.setModel(alunoTableModel);
         
         setLocationRelativeTo(null);
         this.id = id;

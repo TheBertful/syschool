@@ -10,6 +10,7 @@ import syschool.models.Disciplina;
 import syschool.db.ConexaoMySQL;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import syschool.models.Inscricao;
 
 /**
  *
@@ -138,5 +139,6 @@ public class DisciplinaController {
         String query = "SELECT a.nome_aluno as aluno, d.nome_disciplina as disciplina "
                 + "FROM aluno a, disciplina d, inscricao i "
                 + "where i.id_disciplina = d.id_disciplina and a.matricula = i.matricula";
+        return inscricoes;
     }
 }
