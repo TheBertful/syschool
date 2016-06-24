@@ -18,6 +18,7 @@ public class Disciplina {
     private int inscricoesPendentes;
     private String professor;
     private String nome_curso;
+    private String status;
     
     public Disciplina(int id_disciplina, String nome_disciplina, int id_curso, String horario) {
         this.id_disciplina = id_disciplina;
@@ -45,8 +46,9 @@ public class Disciplina {
         this.nome_disciplina = nome_disciplina;
         this.horario = horario;
         this.professor = professor;
+        this.status = professor;
     }
-    
+        
     public Disciplina() {
     }
 
@@ -112,6 +114,14 @@ public class Disciplina {
 
     public void setNome_curso(String nome_curso) {
         this.nome_curso = nome_curso;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
     
     

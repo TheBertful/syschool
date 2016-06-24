@@ -25,9 +25,10 @@ public class MenuAluno extends javax.swing.JFrame {
         
     }
     
-    public MenuAluno(int id, String nome) {
+    public MenuAluno(int id, String nome) throws Exception {
         initComponents();
-        alunoTableModel = new AlunoTableModel();
+        alunoTableModel = new AlunoTableModel(id);
+        
         tbDisciplinas.setModel(alunoTableModel);
         
         setLocationRelativeTo(null);
@@ -141,6 +142,7 @@ public class MenuAluno extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         // remove a inscr selecionada
+        
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed

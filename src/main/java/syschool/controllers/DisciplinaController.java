@@ -141,4 +141,25 @@ public class DisciplinaController {
                 + "where i.id_disciplina = d.id_disciplina and a.matricula = i.matricula";
         return inscricoes;
     }
+    
+    // listar as disciplinas em MenuAluno
+    public ArrayList<Disciplina> listDisciplinasAluno(int idAluno) throws Exception {
+        ArrayList<Disciplina> disciplinas = new ArrayList();
+        
+        String query = "SELECT d.nome_disciplina as disciplina, d.horario as horario, i.status as status "
+                + "FROM aluno a, disciplina d, inscricao i "
+                + "where i.id_disciplina = d.id_disciplina and a.matricula = i.matricula and a.matricula = " + idAluno;
+        Statement st = ConexaoMySQL.getConexao().createStatement();
+        ResultSet rs = st.executeQuery(query);
+        Disciplina d;
+        while (rs.next()) {
+            d = new Disciplina(rs.getString("disciplina"),
+                               rs.getString("horario"),
+                               rs.getString("status"));
+            disciplinas.add(d);
+        }
+        return disciplinas;
+    }
 }
+        
+

@@ -18,9 +18,16 @@ public class AlunoTableModel extends AbstractTableModel{
     
     DisciplinaController disciplinaController = new DisciplinaController();
     private ArrayList<Disciplina> ListaDeDisciplinas;
-    private String [] colunas = {"Nome","Horário"};
+    private String [] colunas = {"Nome","Horário","Status"};
     private static AlunoTableModel instance = null;
     
+    public AlunoTableModel(int id_aluno) throws Exception{
+        ListaDeDisciplinas = disciplinaController.listDisciplinasAluno(id_aluno);
+    }
+    
+    public AlunoTableModel(){
+        
+    }
     
     public static AlunoTableModel getInstance() {
         if(instance == null) 
@@ -56,18 +63,15 @@ public class AlunoTableModel extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        switch(columnIndex){
-              case 0:
+        switch (columnIndex) {
+            case 0:
                 return this.ListaDeDisciplinas.get(rowIndex).getNome_disciplina();
             case 1:
                 return this.ListaDeDisciplinas.get(rowIndex).getHorario();
-            /*
-                n tem status no banco ;-;
-                
-                case 2:
+
+            case 2:
                 return this.ListaDeDisciplinas.get(rowIndex).getStatus();
-                */
-            
+
             default:
                 return this.ListaDeDisciplinas.get(rowIndex);
         }
@@ -76,7 +80,7 @@ public class AlunoTableModel extends AbstractTableModel{
     
     @Override
     public String getColumnName(int i){
-        return colunas[1];
+        return colunas[i];
     }
     
     public String getNome_disciplina(int rowIndex){

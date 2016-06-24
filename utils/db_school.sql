@@ -198,3 +198,11 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2016-06-20 10:37:51
+insert into curso values(1,'Engenharia');
+insert into curso values(2,'Biologia');
+insert into disciplina values(1,'Calculo',1,'22:22');
+insert into disciplina values(2,'Libras',1,'33:33');
+insert into disciplina values(3,'Patogenia das Briófitas',2,'33:33');
+insert into inscricao values(1,'A',1,1);
+insert into inscricao values(2,'P',2,1);
+insert into inscricao values(3,'C',3,1);
