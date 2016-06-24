@@ -48,6 +48,9 @@ public class AlunoTableModel extends AbstractTableModel{
     
     }
     
+    public String getNomeDisciplina(int rowIndex){
+        return this.ListaDeDisciplinas.get(rowIndex).getNome_disciplina();
+    }
     
     @Override
     public int getRowCount() {

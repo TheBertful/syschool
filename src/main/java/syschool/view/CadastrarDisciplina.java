@@ -131,18 +131,18 @@ public class CadastrarDisciplina extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void cboxProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxProfessorActionPerformed
-          try{
-            
+         try {
+
             String query = "SELECT count(*) FROM professor";
             Statement st = ConexaoMySQL.getConexao().createStatement();
             ResultSet rs = st.executeQuery(query);
-        
-            while(rs.next()){
+
+            while (rs.next()) {
                 cboxProfessor.addItem(rs.getString("curso"));
-                
+
             }
 
-        } catch (Exception ex){   
+        } catch (Exception ex) {
             Logger.getLogger(CadastrarCurso.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cboxProfessorActionPerformed

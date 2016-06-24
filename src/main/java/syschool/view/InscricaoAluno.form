@@ -99,12 +99,7 @@
     <Component class="javax.swing.JComboBox" name="cboxDisciplina">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Selecione um Disciplina"/>
-            <StringItem index="1" value="C&#xe1;lculo I"/>
-            <StringItem index="2" value="C&#xe1;lculo II"/>
-            <StringItem index="3" value=""/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
@@ -126,7 +121,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtTime">
       <Properties>
-        <Property name="text" type="java.lang.String" value="00:00"/>
+        <Property name="editable" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTimeActionPerformed"/>
@@ -139,7 +134,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtNomeProfessor">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Digite o nome do Prof."/>
+        <Property name="editable" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="ButtonCancelar">
@@ -161,13 +156,12 @@
     <Component class="javax.swing.JComboBox" name="cboxCurso">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="Selecione o Curso"/>
-            <StringItem index="1" value="Administra&#xe7;&#xe3;o"/>
-            <StringItem index="2" value="Biomedicina"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cboxCursoActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>

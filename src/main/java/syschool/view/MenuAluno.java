@@ -5,6 +5,9 @@
  */
 package syschool.view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import syschool.controllers.InscricaoController;
 import syschool.view.tablemodel.AlunoTableModel;
 
 /**
@@ -14,6 +17,7 @@ import syschool.view.tablemodel.AlunoTableModel;
 public class MenuAluno extends javax.swing.JFrame {
     
     AlunoTableModel alunoTableModel;
+    InscricaoController ic;
     /**
      * Creates new form MenuAluno
      */
@@ -27,10 +31,8 @@ public class MenuAluno extends javax.swing.JFrame {
     
     public MenuAluno(int id, String nome) throws Exception {
         initComponents();
-        alunoTableModel = new AlunoTableModel(id);
-        
-        tbDisciplinas.setModel(alunoTableModel);
-        
+        alunoTableModel = new AlunoTableModel(id);        
+        tbDisciplinas.setModel(alunoTableModel);        
         setLocationRelativeTo(null);
         this.id = id;
         this.setTitle("Menu Principal - Aluno - " + nome);
@@ -142,7 +144,18 @@ public class MenuAluno extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         // remove a inscr selecionada
-        
+        if(tbDisciplinas.getSelectedRow() != -1){
+            String nome = alunoTableModel.getNomeDisciplina(tbDisciplinas.getSelectedRow());
+            ic = new InscricaoController();
+            try {
+                ic.removerInscricao(nome, id);
+                alunoTableModel = new AlunoTableModel(id);
+                tbDisciplinas.setModel(alunoTableModel);
+            } catch (Exception ex) {
+                Logger.getLogger(MenuAluno.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed

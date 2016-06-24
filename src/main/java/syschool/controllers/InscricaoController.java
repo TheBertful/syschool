@@ -54,5 +54,13 @@ public class InscricaoController {
         st.close();
         
         return inscricao;
-    }    
+    }
+    
+    public void removerInscricao(String disciplina, int matricula) throws Exception{        
+        String query = "DELETE from inscricao"
+                + " WHERE matricula = " + matricula
+                + " AND id_disciplina = (SELECT id_disciplina from disciplina where nome_disciplina like '" + disciplina + "')";
+        Statement st = ConexaoMySQL.getConexao().createStatement();   
+        st.executeUpdate(query);
+    }
 }

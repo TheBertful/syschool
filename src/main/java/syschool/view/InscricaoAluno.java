@@ -23,6 +23,27 @@ public class InscricaoAluno extends javax.swing.JFrame {
      */
     public InscricaoAluno() {
         initComponents();
+        try {
+
+            String query = "SELECT * FROM curso";
+            Statement st = ConexaoMySQL.getConexao().createStatement();
+            ResultSet rs = st.executeQuery(query);            
+            while (rs.next()) {
+                cboxCurso.addItem(rs.getString("nome_curso"));
+
+            }
+            query = "SELECT d.id_disciplina, d.nome_disciplina, c.id_curso FROM disciplina d, curso c WHERE d.id_curso = c.id_curso"
+                    + " and c.nome_curso = '"
+                    + cboxCurso.getSelectedItem().toString()+ "'";
+            rs = st.executeQuery(query);            
+            while (rs.next()) {
+                cboxDisciplina.addItem(rs.getString("nome_disciplina"));
+
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(InscricaoAluno.class.getName()).log(Level.SEVERE, null, ex);
+        }
         setLocationRelativeTo(null);
     }
 
@@ -51,7 +72,6 @@ public class InscricaoAluno extends javax.swing.JFrame {
 
         jLabel1.setText("Disciplina:");
 
-        cboxDisciplina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione um Disciplina", "Cálculo I", "Cálculo II", "" }));
         cboxDisciplina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboxDisciplinaActionPerformed(evt);
@@ -62,7 +82,7 @@ public class InscricaoAluno extends javax.swing.JFrame {
 
         jLabel3.setText("Horário:");
 
-        txtTime.setText("00:00");
+        txtTime.setEditable(false);
         txtTime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTimeActionPerformed(evt);
@@ -71,7 +91,7 @@ public class InscricaoAluno extends javax.swing.JFrame {
 
         jLabel4.setText("Professor:");
 
-        txtNomeProfessor.setText("Digite o nome do Prof.");
+        txtNomeProfessor.setEditable(false);
 
         ButtonCancelar.setText("Cancelar\n");
         ButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +107,11 @@ public class InscricaoAluno extends javax.swing.JFrame {
             }
         });
 
-        cboxCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o Curso", "Administração", "Biomedicina" }));
+        cboxCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxCursoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,19 +172,7 @@ public class InscricaoAluno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cboxDisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxDisciplinaActionPerformed
-         try{
-            
-            String query = "SELECT * FROM disciplina";
-            Statement st = ConexaoMySQL.getConexao().createStatement();
-            ResultSet rs = st.executeQuery(query);
-        
-            while(rs.next()){
-                cboxDisciplina.addItem(rs.getString("nome_disciplina"));
-            }
-
-        } catch (Exception ex){   
-            Logger.getLogger(CadastrarCurso.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         
     }//GEN-LAST:event_cboxDisciplinaActionPerformed
 
     private void ButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarActionPerformed
@@ -175,6 +187,23 @@ public class InscricaoAluno extends javax.swing.JFrame {
     private void txtTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTimeActionPerformed
+
+    private void cboxCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCursoActionPerformed
+        // TODO add your handling code here:
+        try{
+        String query = "SELECT d.id_disciplina, d.nome_disciplina, c.id_curso FROM disciplina d, curso c WHERE d.id_curso = c.id_curso"
+                    + " and c.nome_curso = '"
+                    + cboxCurso.getSelectedItem().toString()+ "'";
+        Statement st = ConexaoMySQL.getConexao().createStatement();
+        ResultSet rs = st.executeQuery(query);
+        cboxDisciplina.removeAllItems();
+            while (rs.next()) {
+                cboxDisciplina.addItem(rs.getString("nome_disciplina"));
+            }
+        }  catch (Exception ex) {
+            Logger.getLogger(InscricaoAluno.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cboxCursoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,7 +234,7 @@ public class InscricaoAluno extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+            public void run() {                
                 new InscricaoAluno().setVisible(true);
             }
         });
