@@ -32,14 +32,14 @@ public class InscricaoAluno extends javax.swing.JFrame {
                 cboxCurso.addItem(rs.getString("nome_curso"));
 
             }
-            query = "SELECT d.id_disciplina, d.nome_disciplina, c.id_curso FROM disciplina d, curso c WHERE d.id_curso = c.id_curso"
+            /**query = "SELECT d.id_disciplina, d.nome_disciplina, c.id_curso FROM disciplina d, curso c WHERE d.id_curso = c.id_curso"
                     + " and c.nome_curso = '"
                     + cboxCurso.getSelectedItem().toString()+ "'";
             rs = st.executeQuery(query);            
             while (rs.next()) {
                 cboxDisciplina.addItem(rs.getString("nome_disciplina"));
 
-            }
+            }**/
 
         } catch (Exception ex) {
             Logger.getLogger(InscricaoAluno.class.getName()).log(Level.SEVERE, null, ex);
@@ -181,7 +181,16 @@ public class InscricaoAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonCancelarActionPerformed
 
     private void ButtonInscreverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonInscreverActionPerformed
-     
+        String query = "SELECT COUNT(*) as numInscricoes from inscricoes";
+        
+        try {
+            Statement st = ConexaoMySQL.getConexao().createStatement();
+            ResultSet rs = st.executeQuery(query);
+            int insc = rs.getInt("numInscricoes");            
+        } catch (Exception ex) {
+            Logger.getLogger(InscricaoAluno.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_ButtonInscreverActionPerformed
 
     private void txtTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimeActionPerformed
@@ -190,17 +199,18 @@ public class InscricaoAluno extends javax.swing.JFrame {
 
     private void cboxCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCursoActionPerformed
         // TODO add your handling code here:
-        try{
-        String query = "SELECT d.id_disciplina, d.nome_disciplina, c.id_curso FROM disciplina d, curso c WHERE d.id_curso = c.id_curso"
+        try {
+            String query = "SELECT d.id_disciplina, d.nome_disciplina, c.id_curso FROM disciplina d, curso c WHERE d.id_curso = c.id_curso"
                     + " and c.nome_curso = '"
-                    + cboxCurso.getSelectedItem().toString()+ "'";
-        Statement st = ConexaoMySQL.getConexao().createStatement();
-        ResultSet rs = st.executeQuery(query);
-        cboxDisciplina.removeAllItems();
+                    + cboxCurso.getSelectedItem().toString() + "'";
+            Statement st = ConexaoMySQL.getConexao().createStatement();
+            ResultSet rs = st.executeQuery(query);
+            cboxDisciplina.removeAllItems();
             while (rs.next()) {
                 cboxDisciplina.addItem(rs.getString("nome_disciplina"));
             }
-        }  catch (Exception ex) {
+            
+        } catch (Exception ex) {
             Logger.getLogger(InscricaoAluno.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_cboxCursoActionPerformed
