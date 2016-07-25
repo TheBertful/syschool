@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import syschool.controllers.AlunoController;
 import syschool.controllers.ProfessorController;
+import syschool.db.Sessao;
 import syschool.models.Aluno;
 import syschool.models.Professor;
 
@@ -153,9 +154,12 @@ public class Login extends javax.swing.JFrame {
 
         AlunoController ac = new AlunoController();
         ProfessorController pc = new ProfessorController();
+        Sessao sessao = Sessao.getInstance();
+        Sessao.setMatricula(Integer.parseInt(txtMatricula.getText()));
         
         // Aluno
-        if (txtMatricula.getText().startsWith("1")) {
+        String mat = "" + Sessao.getMatricula();
+        if (mat.startsWith("1")) {
             try {
                 Aluno[] alunos = ac.list();
                 
@@ -172,7 +176,7 @@ public class Login extends javax.swing.JFrame {
         }
         
         // Professor
-        if (txtMatricula.getText().startsWith("2")) {
+        if (mat.startsWith("2")) {
             try {
                 Professor[] professores = pc.list();
                 
@@ -189,7 +193,7 @@ public class Login extends javax.swing.JFrame {
         }
         
         // Coordenador
-        if (txtMatricula.getText().startsWith("3")) {
+        if (mat.startsWith("3")) {
             try {
                 Professor[] professores = pc.list();
 
@@ -206,7 +210,7 @@ public class Login extends javax.swing.JFrame {
         }
         
         // Admin
-        if (txtMatricula.getText().startsWith("4")) {
+        if (mat.startsWith("4")) {
             try {
                 Professor[] professores = pc.list();
 
@@ -257,8 +261,7 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
-                
+                new Login().setVisible(true);                
             }
         });
     }
