@@ -41,13 +41,28 @@ public class CSVRelatorio extends Documento {
             sb.append(",");
             sb.append(getStatus);
             sb.append(",");
-            sb.newLine();  
+            sb.newLine();
         }*/
             pw.write(sb.toString());
             pw.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CSVRelatorio.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        /*@Override
+        protected void criarArquivo(){
+            
+        }
+        
+        @Override
+        protected void formatarArquivo(){
+            
+        }
+        
+        @Override
+        protected void inserirDados(){
+            
+        }*/
 
     }
 }
